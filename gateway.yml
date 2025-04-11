@@ -19,3 +19,8 @@ spring:
           uri: http://localhost:8083
           predicates:
             - Path=/product/**
+
+        - id: eureka-server
+          uri: http://localhost:8090
+          predicates:
+            - Path=/eureka-server/**
