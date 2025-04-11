@@ -6,17 +6,22 @@ spring:
     gateway:
       routes:
         - id: client
-          uri: http://localhost:8078
+          uri: lb://CLIENT
           predicates:
             - Path=/client/**
 
         - id: order
-          uri: http://localhost:8082
+          uri: lb://ORDER
           predicates:
             - Path=/order/**
 
         - id: product
-          uri: http://localhost:8083
+          uri: lb://PRODUCT
+          predicates:
+            - Path=/product/**
+
+        - id: config-server
+          uri: lb:CONFIGSERVER
           predicates:
             - Path=/product/**
 
