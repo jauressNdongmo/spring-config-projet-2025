@@ -5,6 +5,10 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: default-root
+          uri: http://localhost:8081
+          predicates:
+            - Path=/
         - id: client
           uri: lb://CLIENT
           predicates:
@@ -21,9 +25,9 @@ spring:
             - Path=/product/**
 
         - id: config-server
-          uri: lb:CONFIGSERVER
+          uri: lb://CONFIGSERVER
           predicates:
-            - Path=/product/**
+            - Path=/config/**
 
         - id: eureka-server
           uri: http://localhost:8090
