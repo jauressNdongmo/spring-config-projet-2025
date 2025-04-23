@@ -8,23 +8,28 @@ spring:
     gateway:
       routes:
         - id: default-root
-          uri: http://localhost:8081
+          uri: http://localhost:8070
           predicates:
             - Path=/
-        - id: client
-          uri: lb://CLIENT
+        - id: users
+          uri: lb://USERS
           predicates:
-            - Path=/client/**
+            - Path=/users/**
 
-        - id: order
-          uri: lb://ORDER
+        - id: notifications
+          uri: lb://NOTIFICATIONs
           predicates:
-            - Path=/order/**
+            - Path=/notifications/**
 
-        - id: product
-          uri: lb://PRODUCT
+        - id: documents
+          uri: lb://DOCUMENTS
           predicates:
-            - Path=/product/**
+            - Path=/documents/**
+
+        - id: docGeneration
+          uri: lb://DOCGENERATION
+          predicates:
+            - Path=/docGeneration/**
 
         - id: config-server
           uri: lb://CONFIGSERVER
