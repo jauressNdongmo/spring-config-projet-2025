@@ -22,7 +22,7 @@ spring:
             - Path=/users/**
 
         - id: notifications
-          uri: lb://NOTIFICATIONs
+          uri: lb://NOTIFICATIONS
           predicates:
             - Path=/notifications/**
 
