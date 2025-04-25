@@ -13,7 +13,7 @@ spring:
     gateway:
       routes:
         - id: default-root
-          uri: http://localhost:8070
+          uri: http://users:8070
           predicates:
             - Path=/
         - id: users
@@ -42,6 +42,6 @@ spring:
             - Path=/config/**
 
         - id: eureka-server
-          uri: http://localhost:8090
+          uri: http://discovery-server:8090
           predicates:
             - Path=/eureka-server/**
